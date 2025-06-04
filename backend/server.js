@@ -10,12 +10,12 @@ let teams = [];
 app.post('/register', (req, res) => {
     const { username, password } = req.body;
     if (!username || !password) {
-        return res.status(400).send('Potrzebna nazwa użytkownika i hasło!');
+        return res.status(400).send('Potrzebna nazwa uzytkownika i haslo');
     }
 
     const userExists = users.find(user => user.username === username);
     if (userExists) {
-        return res.status(400).send('Taki użytkownik już istnieje!');
+        return res.status(400).send('Taki uzytkownik już istnieje');
     }
 
     const newUser = { username, password };
@@ -43,12 +43,12 @@ app.post('/login', (req, res) => {
 app.post('/teams/create', (req, res) => {
     const { teamName, creatorUsername } = req.body;
     if (!teamName || !creatorUsername) {
-        return res.status(400).send('Potrzebna nazwa zespołu i nazwa twórcy!');
+        return res.status(400).send('Potrzebna nazwa zespołu i nazwa tworcy');
     }
 
     const creatorExists = users.find(user => user.username === creatorUsername);
     if (!creatorExists) {
-        return res.status(400).send('Nie ma takiego użytkownika, który mógłby stworzyć zespół. Zarejestruj się najpierw!');
+        return res.status(400).send('Nie ma takiego uzytkownika ktory mogłby stworzyć zespół najpierw sie zarejestruj');
     }
 
     const newTeam = { teamName, creator: creatorUsername, members: [creatorUsername] };

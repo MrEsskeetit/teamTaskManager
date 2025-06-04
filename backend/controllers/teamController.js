@@ -7,12 +7,12 @@ const createTeam = asyncHandler(async (req, res) => {
 
     if (!name) {
         res.status(400);
-        throw new Error('Nazwa zespołu jest wymagana.');
+        throw new Error('nazwa zespolu jest wymagana.');
     }
 
     if (!req.user) {
         res.status(401);
-        throw new Error('Nieautoryzowany. Brak użytkownika w żądaniu.');
+        throw new Error('nieautoryzowany brak użytkownika w zadaniu.');
     }
 
     const team = await Team.create({
@@ -36,7 +36,7 @@ const createTeam = asyncHandler(async (req, res) => {
         });
     } else {
         res.status(400);
-        throw new Error('Nie udało się utworzyć zespołu.');
+        throw new Error('Nie udało się utworzyc zespolu.');
     }
 });
 
